@@ -17,7 +17,7 @@ public class WiringGenerator
 
             output.append("{");
             for(int i = (int)'A'; i <= (int)'Z'; i++)
-                output.append(String.format("{%d %d},", i % 65, (int) alphabet.charAt(i % (int) 'A') % 65));
+                output.append(String.format("%d,", (int) alphabet.charAt(i % (int) 'A') % 65));
 
             output.deleteCharAt(output.length()-1);
             output.append("};");
