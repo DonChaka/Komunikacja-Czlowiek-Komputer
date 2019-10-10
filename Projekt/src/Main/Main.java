@@ -14,14 +14,13 @@ public class Main extends Application
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //FXMLLoader loader = new FXMLLoader();
         Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
-        //Controller controller = loader.getController();
+        Controller controller = new Controller(root);
 
         enigma = new Enigma(1,2,3);
 
         primaryStage.setTitle("Hello World");
-        Scene scene = new Scene(root, 600, 450);
+        Scene scene = new Scene(root, 530, 902);
         scene.setOnKeyPressed(event -> {
             char x = event.getText().charAt(0);
             System.out.println("Pressed: " + x);
@@ -33,6 +32,7 @@ public class Main extends Application
             enigma.printRotors();
         });
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
