@@ -12,7 +12,7 @@ public class Enigma
         this.rotor1 = new Rotor(rotor1, 0);
         this.rotor2 = new Rotor(rotor2, 0);
         this.rotor3 = new Rotor(rotor3, 0);
-        this.reflector = new Rotor(0,0);
+        this.reflector = new Rotor(0,1);
     }
 
     public char encrypt(char input)
