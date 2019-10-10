@@ -5,27 +5,34 @@ public class Enigma
     private Rotor rotor1;
     private Rotor rotor2;
     private Rotor rotor3;
-    private Rotor reflector;
+    private Reflector reflector;
 
     public Enigma(int rotor1, int rotor2, int rotor3)
     {
         this.rotor1 = new Rotor(rotor1, 0);
         this.rotor2 = new Rotor(rotor2, 0);
         this.rotor3 = new Rotor(rotor3, 0);
-        this.reflector = new Rotor(0,0);
+        this.reflector = new Reflector();
     }
 
     public char encrypt(char input)
     {
-        input %= 'a';
-
+        input -= 'a';
+        //System.out.println((int)input);
         int forwardOutput1 = rotor1.impulse(input, true);
+        //System.out.println(forwardOutput1);
         int forwardOutput2 = rotor2.impulse(forwardOutput1, true);
+        //System.out.println(forwardOutput2);
         int forwardOutput3 = rotor3.impulse(forwardOutput2, true);
-        int reflected = reflector.impulse(forwardOutput3, true);
+        //System.out.println(forwardOutput3);
+        int reflected = reflector.impulse(forwardOutput3);
+        //System.out.println(reflected);
         int backwardOutput3 = rotor3.impulse(reflected, false);
+        //System.out.println(backwardOutput3);
         int backwardOutput2 = rotor2.impulse(backwardOutput3, false);
+        //System.out.println(backwardOutput2);
         int backwardOutput1 = rotor1.impulse(backwardOutput2, false);
+        //System.out.println(backwardOutput1);
 
         return (char)(backwardOutput1 + (int)'a');
     }
