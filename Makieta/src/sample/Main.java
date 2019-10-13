@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Zad3.fxml"));
         primaryStage.setTitle("Zmiana wielkości liter");
-        primaryStage.setScene(new Scene(root, 688  , 400));
+        primaryStage.setScene(new Scene(root, 460  , 245));
         primaryStage.show();
     }
 
