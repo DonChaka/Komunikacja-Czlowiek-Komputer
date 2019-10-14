@@ -13,18 +13,12 @@ public class Person {
     private final IntegerProperty postalCode;
     private final StringProperty city;
 
-    public Person() {
-        this(null, null);
-    }
-
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, String street, int postalCode, String city) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
-
-        // Some initial dummy data, just for convenient testing.
-        this.street = new SimpleStringProperty("some street");
-        this.postalCode = new SimpleIntegerProperty(1234);
-        this.city = new SimpleStringProperty("some city");
+        this.street = new SimpleStringProperty(street);
+        this.postalCode = new SimpleIntegerProperty(postalCode);
+        this.city = new SimpleStringProperty(city);
     }
 
     public String getFirstName() {
