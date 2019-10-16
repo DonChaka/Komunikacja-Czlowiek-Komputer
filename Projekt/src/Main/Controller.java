@@ -3,13 +3,21 @@ package Main;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;;
 import javafx.scene.control.Control;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller
 {
     @FXML private Pane paneFX;
+
+    @FXML private ImageView ALed;
+
     @FXML private Button QButton;
     @FXML private Button WButton;
     @FXML private Button EButton;
@@ -37,10 +45,16 @@ public class Controller
     @FXML private Button MButton;
     @FXML private Button LButton;
 
+    public static List<ImageView> imageViewArray = new ArrayList<>();
+
     public Controller() { }
 
     Controller(Parent root) {
         this.paneFX = (Pane) root.lookup("#paneFX");
+
+        for(int ASCIIchar = 65; ASCIIchar < 66; ASCIIchar++)
+            imageViewArray.add((ImageView) paneFX.lookup("#" + (char)ASCIIchar + "Led"));
+
         this.QButton = (Button) paneFX.lookup("#QButton");
         this.WButton = (Button) paneFX.lookup("#WButton");
         this.EButton = (Button) paneFX.lookup("#EButton");
@@ -75,10 +89,14 @@ public class Controller
     }*/
 
     @FXML public void keyPressed(MouseEvent e) {
+        Main.enigma.tickRotors();
         System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+        System.out.println(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0)));
+        imageViewArray.get(65-(int) (((Control) e.getSource()).getId().replaceFirst("Button", "")).charAt(0)).setVisible(true);
     }
 
     @FXML public void keyUnpressed(MouseEvent e) {
         System.out.println("Unpressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+        imageViewArray.get(65-(int) (((Control) e.getSource()).getId().replaceFirst("Button", "")).charAt(0)).setVisible(false);
     }
 }

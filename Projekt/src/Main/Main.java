@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application
 {
 
-    private static Enigma enigma;
+    public static Enigma enigma;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
