@@ -1,4 +1,4 @@
-package Encryption;
+package com.Encryption;
 
 public class Enigma
 {

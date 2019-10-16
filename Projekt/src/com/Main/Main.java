@@ -1,6 +1,6 @@
-package Main;
+package com.Main;
 
-import Encryption.Enigma;
+import com.Encryption.Enigma;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application
 {
 
-    public static Enigma enigma;
+    static Enigma enigma;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
