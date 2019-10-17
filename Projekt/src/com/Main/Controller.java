@@ -11,7 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;;
 import javafx.scene.control.Control;
+import javafx.scene.media.AudioClip;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,26 +48,31 @@ public class Controller
     @FXML private Button MButton;
     @FXML private Button LButton;
 
-    @FXML public Label Rotor1Label;
-    @FXML public Label Rotor2Label;
-    @FXML public Label Rotor3Label;
+    @FXML private Label Rotor1Label;
+    @FXML private Label Rotor2Label;
+    @FXML private Label Rotor3Label;
 
     @FXML private Slider Rotor1Slider;
     @FXML private Slider Rotor2Slider;
     @FXML private Slider Rotor3Slider;
 
     private static List<ImageView> imageViewArray = new ArrayList<>();
+    private AudioClip clip;
 
     private static boolean buttonPressed = false;
 
     public Controller() { }
 
     public void initialize() {
+        URL resource = getClass().getResource("tik.wav");
+        this.clip = new AudioClip(resource.toString());
+
         this.Rotor1Slider.valueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
                 if(!buttonPressed) {
                     Main.enigma.getRotor1().setPosition(new_val.intValue() - 65);
                     Rotor1Label.setText(String.valueOf((char) (new_val.intValue())));
+                    clip.play();
                 }
             }
         });
@@ -75,6 +82,7 @@ public class Controller
                 if(!buttonPressed) {
                     Main.enigma.getRotor2().setPosition(new_val.intValue() - 65);
                     Rotor2Label.setText(String.valueOf((char) (new_val.intValue())));
+                    clip.play();
                 }
             }
         });
@@ -84,6 +92,7 @@ public class Controller
                 if(!buttonPressed) {
                     Main.enigma.getRotor3().setPosition(new_val.intValue() - 65);
                     Rotor3Label.setText(String.valueOf((char) (new_val.intValue())));
+                    clip.play();
                 }
             }
         });

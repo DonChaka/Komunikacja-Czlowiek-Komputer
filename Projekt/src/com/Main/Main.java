@@ -5,7 +5,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+
+import java.net.URL;
 
 public class Main extends Application
 {
@@ -15,6 +18,7 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
+
         Controller controller = new Controller(root);
 
         enigma = new Enigma(1,2,3);
