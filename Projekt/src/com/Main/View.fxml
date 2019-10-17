@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -168,5 +169,8 @@
             <Image url="@../Resources/letters/L_on.png" />
          </image>
       </ImageView>
+      <Label fx:id="Rotor1Label" layoutX="158.0" layoutY="540.0" text="A" />
+      <Label fx:id="Rotor2Label" layoutX="207.0" layoutY="540.0" text="A" />
+      <Label fx:id="Rotor3Label" layoutX="256.0" layoutY="540.0" text="A" />
    </children>
 </Pane>

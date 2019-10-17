@@ -15,6 +15,19 @@ public class Enigma
         this.reflector = new Reflector();
     }
 
+
+    public Rotor getRotor1() {
+        return rotor1;
+    }
+
+    public Rotor getRotor2() {
+        return rotor2;
+    }
+
+    public Rotor getRotor3() {
+        return rotor3;
+    }
+
     public char encrypt(char input)
     {
         input -= 'a';
@@ -46,6 +59,6 @@ public class Enigma
 
     public void printRotors()
     {
-        System.out.println(rotor3.position + " " + rotor2.position + " " + rotor1.position);
+        System.out.println(rotor3.getPosition() + " " + rotor2.getPosition() + " " + rotor1.getPosition());
     }
 }

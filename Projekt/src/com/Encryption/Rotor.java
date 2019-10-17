@@ -1,9 +1,13 @@
 package com.Encryption;
 
-class Rotor
+public class Rotor
 {
     private int[] connections;
-    int position;
+    private int position;
+
+    public int getPosition() {
+        return position;
+    }
 
     Rotor(int rotor_number, int position)
     {

@@ -3,6 +3,7 @@ package com.Main;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;;
@@ -42,6 +43,10 @@ public class Controller
     @FXML private Button MButton;
     @FXML private Button LButton;
 
+    @FXML private Label Rotor1Label;
+    @FXML private Label Rotor2Label;
+    @FXML private Label Rotor3Label;
+
     private static List<ImageView> imageViewArray = new ArrayList<>();
 
     public Controller() { }
@@ -80,6 +85,10 @@ public class Controller
         this.NButton = (Button) paneFX.lookup("#NButton");
         this.MButton = (Button) paneFX.lookup("#MButton");
         this.LButton = (Button) paneFX.lookup("#LButton");
+
+        this.Rotor1Label = (Label) paneFX.lookup("#Rotor1");
+        this.Rotor2Label = (Label) paneFX.lookup("#Rotor2");
+        this.Rotor3Label = (Label) paneFX.lookup("#Rotor3");
     }
 
     /*void setCryptedLetter(char x)
@@ -90,8 +99,11 @@ public class Controller
     @FXML public void keyPressed(MouseEvent e) {
         Main.enigma.tickRotors();
         System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+        this.Rotor1Label.setText(String.valueOf((char)(Main.enigma.getRotor3().getPosition() + 65)));
+        this.Rotor2Label.setText(String.valueOf((char)(Main.enigma.getRotor2().getPosition() + 65)));
+        this.Rotor3Label.setText(String.valueOf((char)(Main.enigma.getRotor1().getPosition() + 65)));
         System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
-        imageViewArray.get((int) (Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(true);
+        imageViewArray.get((Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(true);
     }
 
     @FXML public void keyUnpressed(MouseEvent e) {
