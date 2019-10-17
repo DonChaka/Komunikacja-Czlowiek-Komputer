@@ -16,9 +16,9 @@ public class Rotor
 
         switch(rotor_number)
         {
-            case 0: // To jest reflektor on zawsze ma pozycje 0 i nigdy sie nie obraca
+/*            case 0: // To jest reflektor on zawsze ma pozycje 0 i nigdy sie nie obraca
                 connections = new int [] {24,17,20,7,16,18,11,3,15,23,13,6,14,10,12,8,4,1,5,25,2,22,21,9,0,19};
-                break;
+                break;*/
             case 1:
                 connections = new int[] {4,10,12,5,11,6,3,16,21,25,13,19,14,22,24,7,23,20,18,15,0,8,1,17,2,9};
                 break;
@@ -73,5 +73,12 @@ public class Rotor
             return true;
         }
         return false;
+    }
+
+    void negateTick()
+    {
+        position -= 1;
+        if(position < 0)
+            position += 26;
     }
 }
