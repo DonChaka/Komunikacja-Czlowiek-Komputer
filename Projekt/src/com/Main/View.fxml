@@ -173,8 +173,8 @@
       <Label fx:id="Rotor3Label" layoutX="158.0" layoutY="540.0" text="A" />
       <Label fx:id="Rotor2Label" layoutX="207.0" layoutY="540.0" text="A" />
       <Label fx:id="Rotor1Label" layoutX="256.0" layoutY="540.0" text="A" />
-      <Slider fx:id="Rotor1Slider" blockIncrement="1.0" layoutX="278.0" layoutY="480.0" max="90.0" min="65.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
-      <Slider fx:id="Rotor2Slider" blockIncrement="1.0" layoutX="229.0" layoutY="480.0" max="90.0" min="65.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
-      <Slider fx:id="Rotor3Slider" blockIncrement="1.0" layoutX="181.0" layoutY="480.0" max="90.0" min="65.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
+      <Slider fx:id="Rotor1Slider" blockIncrement="1.0" layoutX="278.0" layoutY="480.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="8.0" value="65.0" />
+      <Slider fx:id="Rotor2Slider" blockIncrement="1.0" layoutX="229.0" layoutY="480.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
+      <Slider fx:id="Rotor3Slider" blockIncrement="1.0" layoutX="181.0" layoutY="480.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
    </children>
 </Pane>
