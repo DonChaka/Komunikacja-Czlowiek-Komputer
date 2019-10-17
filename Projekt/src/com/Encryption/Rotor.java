@@ -75,7 +75,7 @@ public class Rotor
         return false;
     }
 
-    void negateTick()
+    public void negateTick()
     {
         position -= 1;
         if(position < 0)
