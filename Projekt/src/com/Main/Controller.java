@@ -1,9 +1,12 @@
 package com.Main;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;;
@@ -43,9 +46,13 @@ public class Controller
     @FXML private Button MButton;
     @FXML private Button LButton;
 
-    @FXML private Label Rotor1Label;
-    @FXML private Label Rotor2Label;
-    @FXML private Label Rotor3Label;
+    @FXML public static Label Rotor1Label;
+    @FXML public static Label Rotor2Label;
+    @FXML public static Label Rotor3Label;
+
+    @FXML private Slider Rotor1Slider;
+    @FXML private Slider Rotor2Slider;
+    @FXML private Slider Rotor3Slider;
 
     private static List<ImageView> imageViewArray = new ArrayList<>();
 
@@ -86,9 +93,33 @@ public class Controller
         this.MButton = (Button) paneFX.lookup("#MButton");
         this.LButton = (Button) paneFX.lookup("#LButton");
 
-        this.Rotor1Label = (Label) paneFX.lookup("#Rotor1");
-        this.Rotor2Label = (Label) paneFX.lookup("#Rotor2");
-        this.Rotor3Label = (Label) paneFX.lookup("#Rotor3");
+        Controller.Rotor1Label = (Label) paneFX.lookup("#Rotor1");
+        Controller.Rotor2Label = (Label) paneFX.lookup("#Rotor2");
+        Controller.Rotor3Label = (Label) paneFX.lookup("#Rotor3");
+
+        this.Rotor1Slider = (Slider) paneFX.lookup("#Rotor1Slider");
+        this.Rotor2Slider = (Slider) paneFX.lookup("#Rotor2Slider");
+        this.Rotor3Slider = (Slider) paneFX.lookup("#Rotor3Slider");
+
+        Rotor1Slider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+                if(new_val.intValue() > old_val.intValue())
+                    Main.enigma.getRotor1().tick();
+
+            }
+        });
+
+        Rotor2Slider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+
+            }
+        });
+
+        Rotor3Slider.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+
+            }
+        });
     }
 
     /*void setCryptedLetter(char x)
@@ -99,9 +130,9 @@ public class Controller
     @FXML public void keyPressed(MouseEvent e) {
         Main.enigma.tickRotors();
         System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
-        this.Rotor1Label.setText(String.valueOf((char)(Main.enigma.getRotor3().getPosition() + 65)));
-        this.Rotor2Label.setText(String.valueOf((char)(Main.enigma.getRotor2().getPosition() + 65)));
-        this.Rotor3Label.setText(String.valueOf((char)(Main.enigma.getRotor1().getPosition() + 65)));
+        Controller.Rotor1Label.setText(String.valueOf((char)(Main.enigma.getRotor1().getPosition() + 65)));
+        Controller.Rotor2Label.setText(String.valueOf((char)(Main.enigma.getRotor2().getPosition() + 65)));
+        Controller.Rotor3Label.setText(String.valueOf((char)(Main.enigma.getRotor3().getPosition() + 65)));
         System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
         imageViewArray.get((Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(true);
     }

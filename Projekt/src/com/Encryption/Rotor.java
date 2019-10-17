@@ -8,6 +8,7 @@ public class Rotor
     public int getPosition() {
         return position;
     }
+    public void setPosition(int position) { this.position = position; }
 
     Rotor(int rotor_number, int position)
     {
@@ -63,7 +64,7 @@ public class Rotor
         return -1;
     }
 
-    boolean tick()
+    public boolean tick()
     {
         position += 1;
         if(position > 25)
