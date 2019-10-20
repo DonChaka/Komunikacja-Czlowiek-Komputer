@@ -64,7 +64,7 @@ public class Controller
     public Controller() { }
 
     public void initialize() {
-        URL resource = getClass().getResource("tik.wav");
+        URL resource = getClass().getResource("click.wav");
         this.clip = new AudioClip(resource.toString());
 
         this.Rotor1Slider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -104,7 +104,7 @@ public class Controller
         for(int ASCIIchar = 65; ASCIIchar <= 90; ASCIIchar++)
             imageViewArray.add((ImageView) paneFX.lookup("#" + (char)ASCIIchar + "Led"));
 
-        System.out.println(imageViewArray.size());
+        //System.out.println(imageViewArray.size());
 
         this.QButton = (Button) paneFX.lookup("#QButton");
         this.WButton = (Button) paneFX.lookup("#WButton");
@@ -150,20 +150,21 @@ public class Controller
     @FXML public void keyPressed(MouseEvent e) {
         buttonPressed = !buttonPressed;
         Main.enigma.tickRotors();
-        System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+        clip.play();
+        //System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
         this.Rotor1Label.setText(String.valueOf((char)(Main.enigma.getRotor1().getPosition() + 65)));
         this.Rotor1Slider.setValue(Main.enigma.getRotor1().getPosition() + 65);
         this.Rotor2Label.setText(String.valueOf((char)(Main.enigma.getRotor2().getPosition() + 65)));
         this.Rotor2Slider.setValue(Main.enigma.getRotor2().getPosition() + 65);
         this.Rotor3Label.setText(String.valueOf((char)(Main.enigma.getRotor3().getPosition() + 65)));
         this.Rotor3Slider.setValue(Main.enigma.getRotor3().getPosition() + 65);
-        System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
+       //System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
         imageViewArray.get((Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(true);
     }
 
     @FXML public void keyUnpressed(MouseEvent e) {
         buttonPressed = !buttonPressed;
-        System.out.println("Unpressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+        //System.out.println("Unpressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
         imageViewArray.get((int) (Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(false);
     }
 }

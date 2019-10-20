@@ -11,6 +11,6 @@ class Reflector
 
     int impulse(int input)
     {
-        return reflections[(input+25)%26];
+        return reflections[input];
     }
 }
