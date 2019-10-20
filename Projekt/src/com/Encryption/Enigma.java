@@ -30,22 +30,14 @@ public class Enigma
 
     public char encrypt(char input)
     {
-        input -= 'a';
-        //System.out.println((int)input);
+        input %= 'A';
         int forwardOutput1 = rotor1.impulse(input, true);
-        //System.out.println(forwardOutput1);
         int forwardOutput2 = rotor2.impulse(forwardOutput1, true);
-        //System.out.println(forwardOutput2);
         int forwardOutput3 = rotor3.impulse(forwardOutput2, true);
-        //System.out.println(forwardOutput3);
         int reflected = reflector.impulse(forwardOutput3);
-        //System.out.println(reflected);
         int backwardOutput3 = rotor3.impulse(reflected, false);
-        //System.out.println(backwardOutput3);
         int backwardOutput2 = rotor2.impulse(backwardOutput3, false);
-        //System.out.println(backwardOutput2);
         int backwardOutput1 = rotor1.impulse(backwardOutput2, false);
-        //System.out.println(backwardOutput1);
 
         return (char)(backwardOutput1 + (int)'a');
     }
@@ -55,10 +47,5 @@ public class Enigma
         if(rotor1.tick())
             if(rotor2.tick())
                 rotor3.tick();
-    }
-
-    public void printRotors()
-    {
-        System.out.println(rotor3.getPosition() + " " + rotor2.getPosition() + " " + rotor1.getPosition());
     }
 }
