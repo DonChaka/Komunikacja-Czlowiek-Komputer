@@ -1,0 +1,16 @@
+.root
+{
+    -fx-background-image:url("backgr.jpg");
+    -fx-background-position: center;
+}
+
+.toggle-button
+{
+    -fx-pref-width: 65px;
+    -fx-background-radius: 15;
+}
+
+.button
+{
+    -fx-background-radius: 25;
+}

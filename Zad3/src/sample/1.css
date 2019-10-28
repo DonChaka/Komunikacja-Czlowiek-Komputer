@@ -1,0 +1,14 @@
+
+.toggle-button:selected
+{
+    -fx-pref-height: 88px;
+    -fx-pref-width: 254px;
+    -fx-background-image: url("on.png");
+}
+
+.toggle-button
+{
+    -fx-pref-height: 88px;
+    -fx-pref-width: 254px;
+    -fx-background-image: url("off.png");
+}
