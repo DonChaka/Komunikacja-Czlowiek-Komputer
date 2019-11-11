@@ -21,7 +21,7 @@ public class Main extends Application
         enigma = new Enigma(1,2,3);
 
         primaryStage.setTitle("Enigma");
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 437, 450);
 
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
