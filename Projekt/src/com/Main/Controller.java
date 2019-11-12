@@ -3,6 +3,7 @@ package com.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -148,23 +149,25 @@ public class Controller
     }*/
 
     @FXML public void keyPressed(MouseEvent e) {
-        buttonPressed = !buttonPressed;
-        Main.enigma.tickRotors();
-        clip.play();
-        //System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
-        this.Rotor1Label.setText(String.valueOf((char)(Main.enigma.getRotor1().getPosition() + 65)));
-        this.Rotor1Slider.setValue(Main.enigma.getRotor1().getPosition() + 65);
-        this.Rotor2Label.setText(String.valueOf((char)(Main.enigma.getRotor2().getPosition() + 65)));
-        this.Rotor2Slider.setValue(Main.enigma.getRotor2().getPosition() + 65);
-        this.Rotor3Label.setText(String.valueOf((char)(Main.enigma.getRotor3().getPosition() + 65)));
-        this.Rotor3Slider.setValue(Main.enigma.getRotor3().getPosition() + 65);
-       //System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
-        imageViewArray.get((Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(true);
+        if(e.isPrimaryButtonDown()) {
+            buttonPressed = !buttonPressed;
+            Main.enigma.tickRotors();
+            clip.play();
+            //System.out.println("Pressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+            this.Rotor1Label.setText(String.valueOf((char) (Main.enigma.getRotor1().getPosition() + 65)));
+            this.Rotor1Slider.setValue(Main.enigma.getRotor1().getPosition() + 65);
+            this.Rotor2Label.setText(String.valueOf((char) (Main.enigma.getRotor2().getPosition() + 65)));
+            this.Rotor2Slider.setValue(Main.enigma.getRotor2().getPosition() + 65);
+            this.Rotor3Label.setText(String.valueOf((char) (Main.enigma.getRotor3().getPosition() + 65)));
+            this.Rotor3Slider.setValue(Main.enigma.getRotor3().getPosition() + 65);
+            //System.out.println((char)(Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32));
+            imageViewArray.get((Main.enigma.encrypt(((Control) e.getSource()).getId().replaceFirst("Button", "").charAt(0)) - 32) - 65).setVisible(true);
+        }
     }
 
     @FXML public void keyUnpressed(MouseEvent e) {
-        buttonPressed = !buttonPressed;
-        //System.out.println("Unpressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
-        imageViewArray.get((int) (Main.enigma.encrypt(((Control)e.getSource()).getId().replaceFirst("Button", "").charAt(0))-32)-65).setVisible(false);
+            buttonPressed = !buttonPressed;
+            //System.out.println("Unpressed " + ((Control)e.getSource()).getId().replaceFirst("Button", ""));
+            imageViewArray.get((int) (Main.enigma.encrypt(((Control) e.getSource()).getId().replaceFirst("Button", "").charAt(0)) - 32) - 65).setVisible(false);
     }
 }

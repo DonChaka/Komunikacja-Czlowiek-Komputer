@@ -1,12 +1,20 @@
 package Model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import javafx.animation.RotateTransition;
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
@@ -14,6 +22,7 @@ import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * Simple implementation of the Rubik's cube using JavaFX 3D
@@ -45,6 +54,16 @@ public class Kostka2 extends Application {
 
     public Kostka2(){}
 
+    private Node nFLD, nFRD, nFLU, nFRU, nBLD, nBRD, nBLU, nBRU;
+
+
+    KeyCombination kc1 = new KeyCodeCombination(KeyCode.DIGIT1, KeyCombination.SHIFT_ANY);
+    KeyCombination kc2 = new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.SHIFT_ANY);
+    KeyCombination kc3 = new KeyCodeCombination(KeyCode.DIGIT3, KeyCombination.SHIFT_ANY);
+    KeyCombination kc4 = new KeyCodeCombination(KeyCode.DIGIT4, KeyCombination.SHIFT_ANY);
+    KeyCombination kc5 = new KeyCodeCombination(KeyCode.DIGIT5, KeyCombination.SHIFT_ANY);
+    KeyCombination kc6 = new KeyCodeCombination(KeyCode.DIGIT6, KeyCombination.SHIFT_ANY);
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -72,21 +91,103 @@ public class Kostka2 extends Application {
             meshP.getTransforms().addAll(new Translate(pt.getX(), pt.getY(), pt.getZ()));
             meshGroup.getChildren().add(meshP);
         });
+        //FLD, FRD, FLU, FRU,
+        //            BLD,  BRD, BLU, BRU
+
+        nFLD = meshGroup.getChildren().get(0);
+        nFRD = meshGroup.getChildren().get(1);
+        nFLU = meshGroup.getChildren().get(2);
+        nFRU = meshGroup.getChildren().get(3);
+        nBLD = meshGroup.getChildren().get(4);
+        nBRD = meshGroup.getChildren().get(5);
+        nBLU = meshGroup.getChildren().get(6);
+        nBRU = meshGroup.getChildren().get(7);
+
 
         Rotate rotateX = new Rotate(30, 0, 0, 0, Rotate.X_AXIS);
         Rotate rotateY = new Rotate(20, 0, 0, 0, Rotate.Y_AXIS);
         meshGroup.getTransforms().addAll(rotateX, rotateY);
 
         PointLight light = new PointLight();
-        light.setTranslateX(10);
-        light.setTranslateY(-20);
+        light.setTranslateX(100);
+        light.setTranslateY(-200);
 
         PointLight light2 = new PointLight();
         light2.setTranslateY(10);
         light2.setTranslateX(-20);
 
+        sceneRoot.getChildren().addAll(meshGroup, light, new AmbientLight());
 
-        sceneRoot.getChildren().addAll(meshGroup, new AmbientLight());
+        //FLD, FRD, FLU, FRU,
+        //            BLD,  BRD, BLU, BRU
+        scene.setOnKeyPressed( e -> {
+            List<Node> list = new ArrayList<>();
+            Point3D rotate = Rotate.X_AXIS;
+            int angle = 0;
+
+            switch(e.getCode())
+            {
+                case DIGIT1:
+                    list = Arrays.asList(nFLD, nFRD, nBLD, nBRD);
+                    rotate = Rotate.Y_AXIS;
+                    if(e.isShiftDown())
+                    {
+
+                        angle = -90;
+                        Node temp = nFLD;
+                        nFLD = nBLD;
+                        nBLD = nBRD;
+                        nBRD = nFRD;
+                        nFRD = temp;
+                    }
+                    else
+                    {
+                        angle = 90;
+                        Node temp = nFLD;
+                        nFLD = nFRD;
+                        nFRD = nBRD;
+                        nBRD = nBLD;
+                        nBLD = temp;
+                    }
+
+                    break;
+                case DIGIT2:
+                    list = Arrays.asList(nFLD, nFRD, nFLU, nFRU);
+                    rotate = Rotate.Z_AXIS;
+                    if(e.isShiftDown())
+                    {
+                        angle = -90;
+                        Node temp = nFLD;
+                        nFLD = nFLU;
+                        nFLU = nFRU;
+                        nFRU = nFRD;
+                        nFRD = temp;
+                    }
+                    else
+                    {
+                        angle = 90;
+                        Node temp = nFLD;
+                        nFLD = nFRD;
+                        nFRD = nFRU;
+                        nFRU = nFLU;
+                        nFLU = temp;
+                    }
+                    break;
+                /*case DIGIT3:
+                    list = Arrays.asList(nFRU, nFLU, nBLU, nBRU);
+                    rotate = Rotate.Y_AXIS;*/
+
+            }
+            for (Node node: list)
+            {
+            RotateTransition rt = new RotateTransition(Duration.millis(100), node);
+            rt.setAxis(rotate);
+            rt.setByAngle(angle);
+            rt.play();
+            }
+
+
+        });
 
         scene.setOnMousePressed(me -> {
             mouseOldX = me.getSceneX();
@@ -138,7 +239,6 @@ public class Kostka2 extends Application {
 
     private static final List<int[]> patternFaceF = Arrays.asList(
             FLD, FRD, FLU, FRU,
-           /* CLD, CRD, CLU, CRU,*/
             BLD,  BRD, BLU, BRU);
 
     private static final List<Point3D> pointsFaceF = Arrays.asList(
