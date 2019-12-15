@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="paneFX" maxHeight="460.0" maxWidth="447.0" minHeight="460.0" minWidth="447.0" prefHeight="460.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/8.0.201" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Main.Controller">
+   <children>
+      <ImageView fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Resources/enigma.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="QButton" layoutX="47.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="Q" />
+      <Button fx:id="WButton" layoutX="87.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="W" />
+      <Button fx:id="EButton" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="E" />
+      <Button fx:id="RButton" layoutX="170.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="R" />
+      <Button fx:id="TButton" layoutX="210.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="T" />
+      <Button fx:id="ZButton" layoutX="250.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="Z" />
+      <Button fx:id="UButton" layoutX="292.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="U" />
+      <Button fx:id="IButton" layoutX="333.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="I" />
+      <Button fx:id="OButton" layoutX="374.0" layoutY="315.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="O" />
+      <Button fx:id="AButton" layoutX="67.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="A" />
+      <Button fx:id="SButton" layoutX="108.0" layoutY="360.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="S" />
+      <Button fx:id="DButton" layoutX="149.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="D" />
+      <Button fx:id="FButton" layoutX="190.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="F" />
+      <Button fx:id="GButton" layoutX="231.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="G" />
+      <Button fx:id="HButton" layoutX="272.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="H" />
+      <Button fx:id="JButton" layoutX="313.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="J" />
+      <Button fx:id="KButton" layoutX="353.0" layoutY="355.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="K" />
+      <Button fx:id="PButton" layoutX="47.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="P" />
+      <Button fx:id="YButton" layoutX="87.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="Y" />
+      <Button fx:id="XButton" layoutX="131.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="X" />
+      <Button fx:id="CButton" layoutX="170.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="C" />
+      <Button fx:id="VButton" layoutX="210.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="V" />
+      <Button fx:id="BButton" layoutX="250.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="B" />
+      <Button fx:id="NButton" layoutX="292.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="N" />
+      <Button fx:id="MButton" layoutX="333.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="M" />
+      <Button fx:id="LButton" layoutX="374.0" layoutY="394.0" mnemonicParsing="false" onMousePressed="#keyPressed" onMouseReleased="#keyUnpressed" opacity="0.0" prefHeight="26.0" prefWidth="27.0" text="L" />
+      <Label fx:id="Rotor3Label" layoutX="112.0" layoutY="123.0" text="A" />
+      <Label fx:id="Rotor2Label" layoutX="156.0" layoutY="123.0" text="A" />
+      <Label fx:id="Rotor1Label" layoutX="200.0" layoutY="123.0" text="A" />
+      <Slider fx:id="Rotor1Slider" blockIncrement="1.0" layoutX="218.0" layoutY="72.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="8.0" value="65.0" />
+      <Slider fx:id="Rotor2Slider" blockIncrement="1.0" layoutX="173.0" layoutY="72.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
+      <Slider fx:id="Rotor3Slider" blockIncrement="1.0" layoutX="130.0" layoutY="72.0" max="90.0" min="65.0" opacity="0.0" orientation="VERTICAL" prefHeight="103.0" prefWidth="14.0" value="65.0" />
+      <ImageView fx:id="ALed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/A.png" />
+         </image></ImageView>
+      <ImageView fx:id="BLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/B.png" />
+         </image></ImageView>
+      <ImageView fx:id="CLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/C.png" />
+         </image></ImageView>
+      <ImageView fx:id="DLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/D.png" />
+         </image></ImageView>
+      <ImageView fx:id="ELed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/E.png" />
+         </image></ImageView>
+      <ImageView fx:id="FLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/F.png" />
+         </image></ImageView>
+      <ImageView fx:id="GLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/G.png" />
+         </image></ImageView>
+      <ImageView fx:id="HLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/H.png" />
+         </image></ImageView>
+      <ImageView fx:id="ILed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/I.png" />
+         </image></ImageView>
+      <ImageView fx:id="JLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/J.png" />
+         </image></ImageView>
+      <ImageView fx:id="KLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/K.png" />
+         </image></ImageView>
+      <ImageView fx:id="LLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/L.png" />
+         </image></ImageView>
+      <ImageView fx:id="MLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/M.png" />
+         </image></ImageView>
+      <ImageView fx:id="NLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/N.png" />
+         </image></ImageView>
+      <ImageView fx:id="OLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/O.png" />
+         </image></ImageView>
+      <ImageView fx:id="PLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/P.png" />
+         </image></ImageView>
+      <ImageView fx:id="QLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/Q.png" />
+         </image></ImageView>
+      <ImageView fx:id="RLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/R.png" />
+         </image></ImageView>
+      <ImageView fx:id="SLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/S.png" />
+         </image></ImageView>
+      <ImageView fx:id="TLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/T.png" />
+         </image></ImageView>
+      <ImageView fx:id="ULed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/U.png" />
+         </image></ImageView>
+      <ImageView fx:id="VLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/V.png" />
+         </image></ImageView>
+      <ImageView fx:id="WLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/W.png" />
+         </image></ImageView>
+      <ImageView fx:id="XLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/X.png" />
+         </image></ImageView>
+      <ImageView fx:id="YLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/Y.png" />
+         </image></ImageView>
+      <ImageView fx:id="ZLed" fitHeight="114.0" fitWidth="447.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Resources/letters/Z.png" />
+         </image></ImageView>
+
+   </children>
+</Pane>
